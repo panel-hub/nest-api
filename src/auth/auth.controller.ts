@@ -2,6 +2,8 @@ import { Body, Controller, Get, HttpCode, HttpStatus, Post, Request, Res, UseGua
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { Response } from 'express';
+import { DUser } from 'src/decorator/user.decorator';
+import { User } from 'src/schema/user.schema';
 
 @Controller('auth')
 export class AuthController {
@@ -24,7 +26,7 @@ export class AuthController {
 
     @UseGuards(AuthGuard)
     @Get('profile')
-    getProfile(@Request() req) {
-      return req.user;
+    getProfile(@DUser() user: User) {
+      return user;
     }
 }
