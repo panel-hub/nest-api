@@ -3,8 +3,8 @@
 ## Base Modules
 
 - [X] Auth Module
-- [ ] Roles Module
-- [ ] Users Module
+- [X] Roles Module
+- [X] Users Module
 - [ ] Connection Module with all collections
 - [ ] Products Module
 - [ ] Inventory Module

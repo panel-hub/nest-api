@@ -24,6 +24,7 @@ export class AuthGuard implements CanActivate {
         
         try {
             const payload = await this.getAccessTokenData(access_token)
+            payload.roles = await this.getRoles(payload.email)
             request['user'] = payload;
         } catch (error) {
             try {
@@ -34,6 +35,7 @@ export class AuthGuard implements CanActivate {
                 response.cookie('refresh_token', _refresh_token, { maxAge: 86400000 })
                 
                 const payload2 = await this.getAccessTokenData(_access_token)
+                payload2.roles = await this.getRoles(payload2.email)
 
                 request['user'] = payload2;
             } catch (error2) {
@@ -57,5 +59,10 @@ export class AuthGuard implements CanActivate {
 
     private async getRefreshToken(token: string) {
         return await this.jwtService.verifyAsync(token, { secret: jwtConstants.ref_secret, maxAge: '1d' });
+    }
+    
+    private async getRoles(email: string){
+        const roles = await this.authService.getRoles(email)
+        return roles?.length ? roles : []
     }
 }

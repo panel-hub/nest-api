@@ -4,6 +4,7 @@ import { AuthGuard } from './auth.guard';
 import { Response } from 'express';
 import { DUser } from 'src/decorator/user.decorator';
 import { User } from 'src/schema/user.schema';
+import { DRoles } from 'src/decorator/roles.decorator';
 
 @Controller('auth')
 export class AuthController {
@@ -24,8 +25,8 @@ export class AuthController {
       return await this.authService.signUp(signInDto.email, signInDto.password);
     }  
 
-    @UseGuards(AuthGuard)
     @Get('profile')
+    @DRoles(['products.read'])
     getProfile(@DUser() user: User) {
       return user;
     }

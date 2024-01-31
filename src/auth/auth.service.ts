@@ -39,4 +39,9 @@ export class AuthService {
             refresh_token: await this.jwtService.signAsync(payload, { secret: jwtConstants.ref_secret })
         }
     }
+    
+
+    async getRoles(email: string){
+        return await this.usersService.getRoles(email)
+    }
 }
