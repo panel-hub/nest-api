@@ -34,6 +34,7 @@
 - [ ] Size Chart
 - [ ] AR Category Configuration
 
-# Integration
-- [ ] Ithink logistics Integration
-- [ ] Stripe Payment Integration 
+# Integration Modules
+- [ ] **Ithink** logistics Integration
+- [ ] ~~**Stripe** Payment Integration~~
+- [ ] **Razorpay** Payment Integration
