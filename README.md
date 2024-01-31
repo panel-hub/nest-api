@@ -1,6 +1,7 @@
 # All Modules Working
 
 ## Base Modules
+
 - [X] Auth Module
 - [ ] Roles Module
 - [ ] Users Module
@@ -18,11 +19,14 @@
 
 ## Settings Modules
 ### Products
+
 - [ ] Field Mapping
 - [ ] Filter Confg.
 - [ ] Products Spec. Confg.
 - [ ] Price Component
+
 ### Bussiness
+
 - [ ] Account Images
 - [ ] Account Setting
 - [ ] Payment Setting
@@ -35,6 +39,7 @@
 - [ ] AR Category Configuration
 
 # Integration Modules
+
 - [ ] **Ithink** logistics Integration
 - [ ] ~~**Stripe** Payment Integration~~
 - [ ] **Razorpay** Payment Integration
