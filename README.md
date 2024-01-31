@@ -7,6 +7,8 @@
 - [ ] Connection Module with all collections
 - [ ] Products Module
 - [ ] Inventory Module
+- [ ] Navigation Module
+- [ ] Notification Module
 - [ ] Pages Module
 - [ ] Themes Module
 - [ ] Carts Module
