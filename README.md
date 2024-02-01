@@ -5,10 +5,10 @@
 - [X] Auth Module
 - [X] Roles Module
 - [X] Users Module
-- [ ] Connection Module with all collections
-- [ ] Products Module
-- [ ] Inventory Module
-- [ ] Navigation Module
+- [X] Connection Module with all collections
+- [X] Products Module
+- [X] Inventory Module
+- [X] Navigation Module
 - [ ] Notification Module
 - [ ] Pages Module
 - [ ] Themes Module

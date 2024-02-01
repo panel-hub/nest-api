@@ -7,6 +7,8 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { ProductsModule } from './products/products.module';
 import { RolesModule } from './roles/roles.module';
+import { InventoryModule } from './inventory/inventory.module';
+import { NavigationModule } from './navigation/navigation.module';
 
 @Module({
   imports: [
@@ -15,7 +17,9 @@ import { RolesModule } from './roles/roles.module';
     UsersModule,
     AuthModule,
     ProductsModule,
-    RolesModule
+    RolesModule,
+    InventoryModule,
+    NavigationModule
   ],
   controllers: [AppController],
   providers: [AppService],

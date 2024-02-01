@@ -6,6 +6,8 @@ import { Connection } from 'mongoose';
 import { InjectConnection } from '@nestjs/mongoose';
 import { Dconnection, IModelNames } from 'src/decorator/connection.decorator';
 import { Product, ProductSchema } from 'src/schema/product.schema';
+import { Inventory, InventorySchema } from 'src/schema/inventory.schema';
+import { Navigation, NavigationSchema } from 'src/schema/navigation.schema';
 
 @Injectable()
 export class ConnectionGuard implements CanActivate {
@@ -39,6 +41,10 @@ export class ConnectionGuard implements CanActivate {
         switch(modelName) {
             case 'Products':
                 return connection.model(Product.name, ProductSchema, Product.name)
+            case 'Inventory':
+                return connection.model(Inventory.name, InventorySchema, Inventory.name)
+            case 'Navigation':
+                return connection.model(Navigation.name, NavigationSchema, Navigation.name)
             default:
                 throw new InternalServerErrorException(`${modelName} schema not found`)
         }
