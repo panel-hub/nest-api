@@ -7,7 +7,9 @@ import { Dconnection } from 'src/decorator/connection.decorator';
 import { DModel } from 'src/decorator/model.decorator';
 import { Model } from 'mongoose';
 import { Inventory } from 'src/schema/inventory.schema';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Inventory')
 @Controller('inventory')
 export class InventoryController {
   constructor(private readonly inventoryService: InventoryService) {}

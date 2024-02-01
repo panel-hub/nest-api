@@ -7,8 +7,10 @@ import { Dconnection } from 'src/decorator/connection.decorator';
 import { DModel } from 'src/decorator/model.decorator';
 import { Model } from 'mongoose';
 import { FieldMapping } from 'src/schema/field-mapping.schema';
+import { ApiTags } from '@nestjs/swagger';
 
-@Controller('field-mapping')
+@ApiTags('Settings => Products => Field Mapping')
+@Controller('setting/product/field-mapping')
 export class FieldMappingController {
   constructor(private readonly fieldMappingService: FieldMappingService) {}
 

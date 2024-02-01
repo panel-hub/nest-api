@@ -1,3 +1,6 @@
 import { Reflector } from '@nestjs/core';
-export type IModelNames = 'Products' | 'Inventory' | 'Navigation' | 'SPFieldMapping'
+import { IModelNames } from 'src/auth/connection.guard';
+
 export const Dconnection = Reflector.createDecorator<IModelNames[]>();
+export { IModelNames };
+

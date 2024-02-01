@@ -10,6 +10,8 @@ import { RolesModule } from './roles/roles.module';
 import { InventoryModule } from './inventory/inventory.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { SettingsModule } from './settings/settings.module';
+import { PageModule } from './page/page.module';
+import { ThemeModule } from './theme/theme.module';
 
 @Module({
   imports: [
@@ -21,7 +23,9 @@ import { SettingsModule } from './settings/settings.module';
     RolesModule,
     InventoryModule,
     NavigationModule,
-    SettingsModule
+    SettingsModule,
+    PageModule,
+    ThemeModule
   ],
   controllers: [AppController],
   providers: [AppService],

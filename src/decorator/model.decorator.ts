@@ -7,7 +7,7 @@ export const DModel = createParamDecorator(
             const request = ctx.switchToHttp().getRequest();
             return request.models[data]
         } catch (error) {
-            throw new InternalServerErrorException(`${data} model not injected`)
+            throw new InternalServerErrorException(`${data} model not`)
         }
     },
 );

@@ -7,7 +7,9 @@ import { Dconnection } from 'src/decorator/connection.decorator';
 import { DModel } from 'src/decorator/model.decorator';
 import { Model } from 'mongoose';
 import { NavigationModule } from './navigation.module';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Navigation')
 @Controller('navigation')
 export class NavigationController {
   constructor(private readonly navigationService: NavigationService) {}

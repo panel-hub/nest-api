@@ -6,7 +6,9 @@ import { DUser } from 'src/decorator/user.decorator';
 import { User } from 'src/schema/user.schema';
 import { DRoles } from 'src/decorator/roles.decorator';
 import { DPublic } from 'src/decorator/public.decorator';
+import { ApiCookieAuth, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
     constructor(private authService: AuthService) {}
@@ -28,6 +30,7 @@ export class AuthController {
       return await this.authService.signUp(signInDto.email, signInDto.password);
     }  
 
+    @ApiCookieAuth()
     @Get('profile')
     @DRoles(['products.read'])
     getProfile(@DUser() user: User) {
