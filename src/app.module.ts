@@ -11,7 +11,7 @@ import { RolesModule } from './roles/roles.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(process.env.MONGO_URL),
+    MongooseModule.forRoot(process.env.MONGO_URL, { dbName: process.env.MONGO_DB, appName: process.env.MONGO_DB }),
     UsersModule,
     AuthModule,
     ProductsModule,

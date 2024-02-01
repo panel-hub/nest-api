@@ -1,8 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete} from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { DRoles } from 'src/decorator/roles.decorator';
+import { Dconnection } from 'src/decorator/connection.decorator';
+import { DModel } from 'src/decorator/model.decorator';
+import { Model } from 'mongoose';
+import { Product } from 'src/schema/product.schema';
 
 @Controller('products')
 export class ProductsController {
@@ -10,31 +14,48 @@ export class ProductsController {
 
   @Post()
   @DRoles(['products.read', 'products.add'])
-  create(@Body() createProductDto: CreateProductDto) {
-    return this.productsService.create(createProductDto);
+  @Dconnection(['Products'])
+  create(
+    @Body() createProductDto: CreateProductDto,
+    @DModel('Products') productModel: Model<Product>,
+  ) {
+    return this.productsService.create(createProductDto, productModel);
   }
 
   @Get()
   @DRoles(['products.read'])
-  findAll() {
-    return this.productsService.findAll();
+  @Dconnection(['Products'])
+  findAll(@DModel('Products') productModel: Model<Product>) {
+    return this.productsService.findAll(productModel);
   }
 
   @Get(':id')
   @DRoles(['products.read'])
-  findOne(@Param('id') id: string) {
-    return this.productsService.findOne(+id);
+  @Dconnection(['Products'])
+  findOne(
+    @Param('id') id: string,
+    @DModel('Products') productModel: Model<Product>,
+  ) {
+    return this.productsService.findOne(id, productModel);
   }
 
   @Patch(':id')
   @DRoles(['products.read', 'products.update'])
-  update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {
-    return this.productsService.update(+id, updateProductDto);
+  update(
+    @Param('id') id: string,
+    @Body() updateProductDto: UpdateProductDto,
+    @DModel('Products') productModel: Model<Product>,
+  ) {
+    return this.productsService.update(id, updateProductDto, productModel);
   }
 
   @Delete(':id')
   @DRoles(['products.read', 'products.delete'])
-  remove(@Param('id') id: string) {
-    return this.productsService.remove(+id);
+  @Dconnection(['Products'])
+  remove(
+    @Param('id') id: string,
+    @DModel('Products') productModel: Model<Product>,
+  ) {
+    return this.productsService.remove(id, productModel);
   }
 }
