@@ -9,6 +9,7 @@ import { ProductsModule } from './products/products.module';
 import { RolesModule } from './roles/roles.module';
 import { InventoryModule } from './inventory/inventory.module';
 import { NavigationModule } from './navigation/navigation.module';
+import { SettingsModule } from './settings/settings.module';
 
 @Module({
   imports: [
@@ -19,7 +20,8 @@ import { NavigationModule } from './navigation/navigation.module';
     ProductsModule,
     RolesModule,
     InventoryModule,
-    NavigationModule
+    NavigationModule,
+    SettingsModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -8,6 +8,7 @@ import { Dconnection, IModelNames } from 'src/decorator/connection.decorator';
 import { Product, ProductSchema } from 'src/schema/product.schema';
 import { Inventory, InventorySchema } from 'src/schema/inventory.schema';
 import { Navigation, NavigationSchema } from 'src/schema/navigation.schema';
+import { FieldMapping, FieldMappingSchema } from 'src/schema/field-mapping.schema';
 
 @Injectable()
 export class ConnectionGuard implements CanActivate {
@@ -45,6 +46,9 @@ export class ConnectionGuard implements CanActivate {
                 return connection.model(Inventory.name, InventorySchema, Inventory.name)
             case 'Navigation':
                 return connection.model(Navigation.name, NavigationSchema, Navigation.name)
+            // Settings Products
+            case 'SPFieldMapping':
+                return connection.model(FieldMapping.name, FieldMappingSchema, FieldMapping.name)
             default:
                 throw new InternalServerErrorException(`${modelName} schema not found`)
         }

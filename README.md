@@ -20,7 +20,7 @@
 ## Settings Modules
 ### Products
 
-- [ ] Field Mapping
+- [X] Field Mapping
 - [ ] Filter Confg.
 - [ ] Products Spec. Confg.
 - [ ] Price Component
